@@ -1,16 +1,31 @@
 // News API
-console.log("news API :>> ");
-const NEWS_API_KEY = "c439d9bd8a0f4e879b73f0b05ea17406";
+
+import SearchService from "./js/search-service.js";
+
 // const END_POINT = "https://newsapi.org/v2/everything?q=bitcoin&apiKey=c439d9bd8a0f4e879b73f0b05ea17406";
-const END_POINT = "https://newsapi.org/v2/everything?";
-const options = {
-  headers: {
-    Authorization: NEWS_API_KEY,
-  },
+
+const searchService = new SearchService();
+
+const refs = {
+  searchForm: document.querySelector(".js-search-form"),
+  articleContainer: document.querySelector(".js-articles-container"),
+  loadMoreBtn: document.querySelector('[data-action="load-more"]'),
 };
 
-const request = "cat";
+refs.searchForm.addEventListener("submit", onSearch);
+refs.loadMoreBtn.addEventListener("click", onLoadMore);
 
-fetch(`${END_POINT}q=${request}&language=en&pageSize=10`, options)
-  .then(r => r.json())
-  .then(console.log);
+function onSearch(e) {
+  e.preventDefault();
+
+  searchService.query = e.currentTarget.elements.query.value;
+  // searchService.pageCount = 1;
+  searchService.resetPage();
+
+  searchService.fetchQuery();
+}
+
+function onLoadMore() {
+  // searchService.pageCount += 1;
+  searchService.fetchQuery();
+}
