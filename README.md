@@ -8,4 +8,6 @@ origin 'https://andriy-kond.github.io' has been blocked by CORS policy: Response
 to preflight request doesn't pass access control check: It does not have HTTP ok
 status.
 
+#### Needs make request from my server (backend) not from browser
+
 ### From http://localhost:1234/ no errors
