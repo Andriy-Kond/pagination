@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel index.html",
+    "start": "parcel src/index.html",
     "build": "parcel build *.html --public-url /pagination/",
     "dev": "parcel src/index.html",
     "build2": "parcel build src/index.html"
@@ -21,7 +21,10 @@
     "posthtml-include": "^1.7.4"
   },
   "dependencies": {
-    "notiflix": "^3.2.7"
+    "handlebars": "^4.7.8",
+    "notiflix": "^3.2.7",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "parcel-plugin-nuke-dist": "^1.0.1"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
 }
