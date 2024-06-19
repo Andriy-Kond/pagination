@@ -1,0 +1,27 @@
+<form class="form js-search-form">
+  <div class="mb-3">
+    <label for="searchQuery" class="form-label">Search for...</label>
+    <input
+      type="text"
+      class="form-control"
+      id="searchQuery"
+      aria-describedby="emailHelp"
+      placeholder="Type your search here"
+      name="query"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-search">Search</button>
+</form>
+
+<ul class="articles js-articles-container"></ul>
+
+<button type="button" class="btn btn-primary btn-more" data-action="load-more">
+  <span
+    class="spinner-border spinner-border-sm spinner is-hidden"
+    role="status"
+    aria-hidden="true"
+  ></span>
+
+  <span class="label">Show more</span>
+</button>
