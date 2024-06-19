@@ -1,16 +1,20 @@
 // News API
-
 import SearchService from "./js/search-service.js";
 import articlesTpl from "./templates/articles.hbs";
+import LoadMoreBtnService from "./js/loadMoreBtn-service.js";
 
 // const END_POINT = "https://newsapi.org/v2/everything?q=bitcoin&apiKey=c439d9bd8a0f4e879b73f0b05ea17406";
 
 const searchService = new SearchService();
+const loadMoreBtnService = new LoadMoreBtnService({
+  selector: '[data-action="load-more"]',
+  hidden: true,
+});
 
 const refs = {
   searchForm: document.querySelector(".js-search-form"),
   articleContainer: document.querySelector(".js-articles-container"),
-  loadMoreBtn: document.querySelector('[data-action="load-more"]'),
+  // loadMoreBtn: document.querySelector('[data-action="load-more"]'),
 };
 
 refs.searchForm.addEventListener("submit", onSearch);
@@ -25,8 +29,7 @@ function onSearch(e) {
     );
   }
 
-  // searchService.pageCount = 1;
-  searchService.resetPage();
+  searchService.resetPage(); // searchService.pageCount = 1;
   clearArticlesContainer();
   fetchArticles();
   // loadMoreBtn.show();

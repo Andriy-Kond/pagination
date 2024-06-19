@@ -35,11 +35,11 @@ export default class SearchService {
   }
 
   // get pageCount() {
-  //   return this.searchQuery;
+  //   return this.pageCount;
   // }
 
   // set pageCount(pageNumber) {
-  //   this.searchQuery = pageNumber;
+  //   this.pageCount = pageNumber;
   // }
 
   resetPage() {
