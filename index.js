@@ -1,6 +1,7 @@
 // News API
 
 import SearchService from "./js/search-service.js";
+import articlesTpl from "./templates/articles.hbs";
 
 // const END_POINT = "https://newsapi.org/v2/everything?q=bitcoin&apiKey=c439d9bd8a0f4e879b73f0b05ea17406";
 
@@ -13,19 +14,42 @@ const refs = {
 };
 
 refs.searchForm.addEventListener("submit", onSearch);
-refs.loadMoreBtn.addEventListener("click", onLoadMore);
+refs.loadMoreBtn.addEventListener("click", fetchArticles);
 
 function onSearch(e) {
   e.preventDefault();
+  searchService.query = e.currentTarget.elements.query.value.trim();
+  if (searchService.query === "") {
+    return alert(
+      "Ваш запит пустий. Зробіть якийсь запит, бо не знаю що шукати.",
+    );
+  }
 
-  searchService.query = e.currentTarget.elements.query.value;
   // searchService.pageCount = 1;
   searchService.resetPage();
-
-  searchService.fetchQuery();
+  clearArticlesContainer();
+  fetchArticles();
+  // loadMoreBtn.show();
 }
 
 function onLoadMore() {
   // searchService.pageCount += 1;
   searchService.fetchQuery();
+}
+
+function fetchArticles() {
+  // loadMoreBtn.disable();
+  searchService.fetchQuery().then(articles => {
+    markupArticles(articles);
+    // loadMoreBtn.enable();
+  });
+}
+
+function markupArticles(articles) {
+  console.log("markupArticles >> articles:::", articles);
+  refs.articleContainer.insertAdjacentHTML("beforeend", articlesTpl(articles));
+}
+
+function clearArticlesContainer() {
+  refs.articleContainer.innerHTML = "";
 }

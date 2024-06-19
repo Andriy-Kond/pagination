@@ -5,7 +5,7 @@ export default class SearchService {
   }
 
   fetchQuery() {
-    const END_POINT = "https://newsapi.org/v2/everything?";
+    const END_POINT = "https://newsapi.org/v2";
     const NEWS_API_KEY = "c439d9bd8a0f4e879b73f0b05ea17406";
     console.log("this :>> ", this);
     const options = {
@@ -14,14 +14,15 @@ export default class SearchService {
       },
     };
 
-    const url = `${END_POINT}q=${this.searchQuery}&language=en&pageSize=5&page=${this.pageCount}`;
+    const url = `${END_POINT}/everything?q=${this.searchQuery}&language=en&pageSize=5&page=${this.pageCount}`;
 
-    fetch(url, options)
-      .then(r => r.json())
+    return fetch(url, options)
+      .then(response => response.json())
       .then(data => {
         console.log("data :>> ", data);
         // Краще збільшувати сторінку тут, бо тут вже успішне виконання запиту
         this.pageCount += 1;
+        return data.articles;
       });
   }
 
