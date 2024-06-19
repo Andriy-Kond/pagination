@@ -3,6 +3,7 @@ import SearchService from "./js/search-service.js";
 import articlesTpl from "./templates/articles.hbs";
 import LoadMoreBtnService from "./js/loadMoreBtn-service.js";
 import "./css/common.css";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 
 // const END_POINT = "https://newsapi.org/v2/everything?q=bitcoin&apiKey=c439d9bd8a0f4e879b73f0b05ea17406";
 
@@ -26,9 +27,13 @@ function onSearch(e) {
   e.preventDefault();
   searchService.query = e.currentTarget.elements.query.value.trim();
   if (searchService.query === "") {
-    return alert(
+    Notify.warning(
       "Ваш запит пустий. Зробіть якийсь запит, бо не знаю що шукати.",
     );
+    return;
+    // alert(
+    //   "Ваш запит пустий. Зробіть якийсь запит, бо не знаю що шукати.",
+    // );
   }
 
   searchService.resetPage(); // searchService.pageCount = 1;
