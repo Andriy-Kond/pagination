@@ -7,9 +7,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
-    "build": "parcel build *.html --public-url /pagination/",
+    "build2": "parcel build *.html --public-url /pagination/",
     "dev": "parcel src/index.html",
-    "build2": "parcel build src/index.html"
+    "build": "parcel build index.html"
   },
   "keywords": [],
   "author": "",
