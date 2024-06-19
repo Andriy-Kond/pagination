@@ -1,29 +1,30 @@
 {
-  "name": "pagination",
-  "version": "1.0.0",
+  "name": "parcel-project-template",
+  "version": "2.0.0",
   "description": "",
-  "homepage": "https://Andriy-Kond.github.io/pagination",
-  "main": "index.js",
+  "homepage": "https://goitacademy.github.io/parcel-project-template",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel src/index.html",
-    "build": "parcel build *.html --public-url /pagination/",
-    "dev": "parcel src/index.html"
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /parcel-project-template/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goitacademy/parcel-project-template.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goitacademy/parcel-project-template/issues"
+  },
+  "dependencies": {
+    "modern-normalize": "^1.1.0"
+  },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4"
-  },
-  "dependencies": {
-    "handlebars": "^4.7.8",
-    "notiflix": "^3.2.7",
-    "parcel-plugin-handlebars-precompile": "^1.0.2",
-    "parcel-plugin-nuke-dist": "^1.0.1"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
 }
