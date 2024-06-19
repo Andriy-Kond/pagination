@@ -28,3 +28,14 @@ body {
 .btn > .spinner.is-hidden {
   display: none;
 }
+
+.btn.is-hidden {
+  display: none;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+}
