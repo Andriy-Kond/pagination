@@ -11,10 +11,6 @@
     "dev": "parcel src/index.html",
     "build2": "parcel build src/index.html"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/goitacademy/parcel-project-template.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
