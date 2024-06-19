@@ -3,7 +3,7 @@ import SearchService from "./js/search-service.js";
 import articlesTpl from "./templates/articles.hbs";
 import LoadMoreBtnService from "./js/loadMoreBtn-service.js";
 import "./css/common.css";
-import { Notify } from "/notiflix/build/notiflix-notify-aio.js";
+import { Notify } from "./notiflix/build/notiflix-notify-aio.js";
 
 // const END_POINT = "https://newsapi.org/v2/everything?q=bitcoin&apiKey=c439d9bd8a0f4e879b73f0b05ea17406";
 
